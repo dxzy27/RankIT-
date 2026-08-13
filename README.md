@@ -108,27 +108,30 @@ The API runs at `http://127.0.0.1:8000` and the admin panel is at `/admin`.
 
 ---
 
-## API Endpoints
+## How to Use
 
-| Method | Endpoint | Description | Auth |
-|---|---|---|---|
-| GET | `/api/categories` | List all categories | No |
-| GET | `/api/topics` | List all topics | No |
-| GET | `/api/topics/{id}` | Get a single topic | No |
-| GET | `/api/leaderboard/{topicId}` | Get leaderboard standings | No |
-| POST | `/api/submissions` | Submit a ballot | Firebase JWT |
-| POST | `/api/topics/{id}/suggestions` | Suggest a candidate | No |
-| GET | `/api/user` | Get current user | Firebase JWT |
-| POST | `/api/logout` | Log out | Firebase JWT |
+### As a User (Mobile App)
 
-Authenticated endpoints require a Firebase ID Token:
-```http
-Authorization: Bearer <firebase_id_token>
-```
+1. **Sign in** — create an account with email and password, or use Google Sign-In.
+2. **Browse topics** — the home screen shows ranking topics grouped by category (Movies, Food, Games, etc.). You can search or filter to find what you're looking for.
+3. **Open a topic** — tap any topic to see its candidates and the current community leaderboard.
+4. **Vote** — tap the vote button and drag candidates into your preferred order. You can rank up to 10 items. Submit when you're done.
+5. **See results** — the leaderboard updates to reflect your vote. You can see how the community ranks each candidate based on everyone's combined ballots.
+6. **AI summary** — tap the summary button on any leaderboard to get a short Gemini-generated insight about the community's preferences.
+7. **Suggest a candidate** — if you think something is missing from a topic's list, you can submit a suggestion for the admin to review.
+8. **Profile** — view your account info and manage your session from the profile screen.
 
-The backend middleware decodes this token and automatically creates or updates the user record in MySQL on each request.
+---
 
-> For local testing without a real token, you can pass a raw UID string (20+ characters) as the Bearer value.
+### As an Admin (Web Panel)
+
+The admin panel is available at `/admin` on the Laravel server. Log in with your admin credentials.
+
+- **Dashboard** — shows an overview of total categories, topics, candidates, and submitted ballots.
+- **Categories** — create and manage the top-level categories that topics are grouped under.
+- **Ranking Topics** — create ranking topics, assign them to a category, set a description, and manage which candidates belong to them.
+- **Candidates** — add or edit individual candidate items (name, description, image) within any topic.
+- **Candidate Suggestions** — review suggestions submitted by users. Approve them to add the candidate to the topic, or dismiss them.
 
 ---
 
