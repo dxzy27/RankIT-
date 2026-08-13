@@ -1,0 +1,31 @@
+# ===========================
+# Flutter / Dart
+# ===========================
+RankIt/RankIt/.dart_tool/
+RankIt/RankIt/build/
+RankIt/RankIt/.flutter-plugins
+RankIt/RankIt/.flutter-plugins-dependencies
+RankIt/RankIt/.packages
+
+# ===========================
+# Laravel / PHP
+# ===========================
+RankIt-Web/vendor/
+RankIt-Web/node_modules/
+RankIt-Web/.env
+RankIt-Web/storage/logs/*.log
+RankIt-Web/storage/framework/cache/data/*
+RankIt-Web/storage/framework/sessions/*
+RankIt-Web/storage/framework/views/*
+RankIt-Web/public/hot
+RankIt-Web/public/storage
+
+# ===========================
+# OS / IDE
+# ===========================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.suo
+*.user

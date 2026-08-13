@@ -1,0 +1,26 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Category extends Model
+{   
+    use HasFactory;
+    protected $fillable = [
+        'name',
+        'description',
+        'image_url'
+    ];
+
+    public function topics()
+    {
+        return $this->hasMany(RankingTopic::class);
+    }
+
+    public function getImageUrlAttribute($value)
+    {
+        return $value ?: asset('images/def.png');
+    }
+}
